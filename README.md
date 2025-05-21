@@ -18,3 +18,25 @@ git clone https://github.com/yourusername/new_hogwartsapp.git
 ```
 cd new_hogwartsapp
 ```
+3. **Create and activate a virtual environment**
+```
+ python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+4. **Install dependencies**
+```
+pip install -r requirements.txt
+```
+5. **Run the application**
+```
+flask run
+```
+6. **Open your browser and go to:**
+ http://127.0.0.1:5000/
+
+## License
+This project is for educational purposes.
+
+
+
+
