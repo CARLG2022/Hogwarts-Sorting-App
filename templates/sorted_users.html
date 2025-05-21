@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorted Wizards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+ 
+ <style>
+   html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/static/images/hogwarts-hall.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cinzel', serif;
+      color: white;
+      text-align: center;
+    }
+
+   .container {
+  background: url('https://contentful.harrypotter.com/usf1vwtuqyxm/71J6YPxNauhFABbjHpGluJ/631bd6980b0a430d5b476ef331abb2b5/release_1_hogwarts.png') no-repeat center center;
+  background-size: cover;
+  padding: 30px;
+  border-radius: 0;         /* Optional: Remove round edges if you want flush full-screen */
+  width: 95.3%;
+  max-width: none;
+  height: 90vh;             /* Adjust as needed */
+  margin: 0;                /* Remove margin spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;             /* Ensures text is visible */
+}
+
+
+
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    .houses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .house {
+       padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .house h2 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    .gryffindor { border: 2px solid #ae0001; }
+    .hufflepuff { border: 2px solid #ecb939; }
+    .ravenclaw  { border: 2px solid #222f5b; }
+    .slytherin  { border: 2px solid #2a623d; }
+    .gryffindor {
+  background-color: rgba(174, 0, 1, 0.7); /* Dark red */
+  border: 2px solid #ae0001;
+}
+.house:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+
+.hufflepuff {
+  background-color: rgba(236, 185, 57, 0.7); /* Gold */
+  border: 2px solid #ecb939;
+  color: black; /* Better contrast on bright background */
+}
+
+.ravenclaw {
+  background-color: rgba(34, 47, 91, 0.7); /* Blue */
+  border: 2px solid #222f5b;
+}
+
+.slytherin {
+  background-color: rgba(42, 98, 61, 0.7); /* Green */
+  border: 2px solid #2a623d;
+}
+
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      font-size: 1.2rem;
+      margin: 5px 0;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      background-color: #444;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    a:hover {
+      background-color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style = "color:black;height:100px; font:font-bold;">Previously Sorted Wizards</h1>
+
+    <div class="houses">
+      <div class="house gryffindor">
+        <h2>Gryffindor 🦁</h2>
+        <ul>
+          {% for name in grouped['Gryffindor'] %}
+            <li>{{ name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="house hufflepuff">
+        <h2 style="color:azure">Hufflepuff 🦡</h2>
+        <ul style="color:white">
+          {% for name in grouped['Hufflepuff'] %}
+            <li >{{ name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="house ravenclaw">
+        <h2>Ravenclaw 🦅</h2>
+        <ul>
+          {% for name in grouped['Ravenclaw'] %}
+            <li>{{ name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="house slytherin">
+        <h2>Slytherin 🐍</h2>
+        <ul>
+          {% for name in grouped['Slytherin'] %}
+            <li>{{ name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <a href="/">Back to Start</a>
+  </div>
+</body>
+</html>

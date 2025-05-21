@@ -1,0 +1,140 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Hogwarts House</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background: url("/static/background.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .result-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 90%;
+            max-width: 1000px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .house-image {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .house-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid white;
+        }
+
+        .house-description {
+            flex: 2;
+            margin-left: 30px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        .house.Gryffindor { color: #AE0001; }
+        .house.Hufflepuff { color: #FFCC00; }
+        .house.Ravenclaw  { color: #00008B; }
+        .house.Slytherin  { color: #008000; }
+
+        a {
+            color: white;
+            display: block;
+            margin-top: 40px;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .result-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .house-description {
+                margin-left: 0;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+        body.Gryffindor {
+    background: linear-gradient(to bottom, #740001, #ae0001); /* deep red */
+}
+
+body.Hufflepuff {
+    background: linear-gradient(to bottom, #ffdb58, #ffcc00); /* golden yellow */
+    color: black;
+}
+
+body.Ravenclaw {
+    background: linear-gradient(to bottom, #0e1a40, #222f5b); /* navy blue */
+}
+
+body.Slytherin {
+    background: linear-gradient(to bottom, #1a472a, #2a623d); /* green */
+}
+
+    </style>
+</head>
+
+    <body class="{{ house }}">
+
+    <div class="container">
+        <h1>Your house is <span class="house {{ house }}">{{ house }}</span>!</h1>
+        <div class="result-section">
+            
+            <div class="house-image">
+    {% if house == 'Gryffindor' %}
+         <img src="{{ url_for('static', filename='images/Gryffindor.png') }}" alt="Gryffindor Crest">
+    {% elif house == 'Hufflepuff' %}
+        <img src="{{ url_for('static', filename='images/Hufflepuff.png') }}" alt="Hufflepuff Crest">
+    {% elif house == 'Ravenclaw' %}
+                <img src="{{ url_for('static', filename='images/Ravenclaw.png') }}" alt="Ravenclaw Crest">
+
+    {% elif house == 'Slytherin' %}
+        <img src="{{ url_for('static', filename='images/Slytherin.png') }}" alt="Slytherin Crest">
+    {% endif %}
+</div>
+
+            <div class="house-description">
+                {% if house == 'Gryffindor' %}
+                    <p>Brave at heart, daring, nerve, and chivalry set Gryffindors apart. They value courage and are known for standing up for what's right — even when it's hard.</p>
+                {% elif house == 'Hufflepuff' %}
+                    <p>Hufflepuffs are just and loyal, known for their patience and dedication. They value hard work, fairness, and treating others kindly.</p>
+                {% elif house == 'Ravenclaw' %}
+                    <p>Ravenclaws are wise and witty. They value learning, intelligence, and creativity. For them, wit beyond measure is man’s greatest treasure.</p>
+                {% elif house == 'Slytherin' %}
+                    <p>Slytherins are cunning and ambitious. They are resourceful and determined, always striving to make their mark and achieve greatness.</p>
+                {% endif %}
+            </div>
+        </div>
+        <a href="/">Take the Quiz Again</a>
+    </div>
+</body>
+</html>
