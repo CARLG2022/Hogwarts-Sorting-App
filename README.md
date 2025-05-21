@@ -33,7 +33,8 @@ flask run
 ```
 6. **Open your browser and go to:**
  http://127.0.0.1:5000/
-
+## Demo
+Screenshots of the app can be found in the Media folder
 ## License
 This project is for educational purposes.
 
